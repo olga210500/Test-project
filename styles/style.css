@@ -10,6 +10,13 @@ body {
 
 .string {
   height: 5px;
+}
+
+.black {
+  background-color: #313131;
+}
+
+.red {
   background-color: #d00b01;
 }
 
@@ -61,8 +68,12 @@ body {
   color: #313131;
   padding: 10px;
 }
+.main .header__container .nav a:hover {
+  color: #ccc;
+}
 .main .header__container .nav .active {
   color: #d00b01;
+  pointer-events: none;
 }
 @media screen and (max-width: 900px) {
   .main .header__container {
@@ -110,6 +121,26 @@ body {
   align-items: center;
   margin-top: 93px;
 }
+.main .icon-section .ticket__icon {
+  margin-bottom: 10px;
+}
+.main .icon-section .ticket__icon .icon {
+  height: 71px;
+  width: 72px;
+  display: block;
+  background-repeat: no-repeat;
+  background-size: 40px;
+  background-position: center;
+  background-color: #ccc;
+  border-radius: 100px;
+}
+.main .icon-section .ticket__icon .custom-icon {
+  cursor: pointer;
+}
+.main .icon-section .ticket__icon .custom-icon:hover {
+  filter: invert(100%);
+  background-color: #2ff4fe;
+}
 .main .icon-section .ticket__content {
   font-size: 12px;
   line-height: 18px;
@@ -132,14 +163,11 @@ body {
 .main .text-content h3 {
   font-weight: 300;
 }
-.main .text-content .gray-line {
-  height: 1px;
-  background-color: #ccc;
-}
 .main .text-content .content {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 35px 0;
 }
 .main .posts {
   width: 100%;
@@ -152,8 +180,11 @@ body {
 }
 .main .posts .cards {
   margin-top: 20px;
+  margin-bottom: 80px;
   display: flex;
   justify-content: space-between;
+  gap: 50px;
+  flex-wrap: wrap;
 }
 .main .posts .cards .cards-item__picture {
   height: 191px;
@@ -189,6 +220,86 @@ body {
 .main .posts .buttons {
   display: flex;
   margin-left: 2px;
+}
+.main .information {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 50px;
+}
+.main .information__card__content {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin: 20px 0;
+}
+.main .information__card__content__messages-img {
+  float: left;
+  width: 20px;
+  height: 20px;
+  margin: 7px 7px 7px 0;
+}
+.main .information__card__content__messages a {
+  text-decoration: none;
+  color: #d00b01;
+}
+.main .information__card__content__form {
+  display: flex;
+  flex-direction: column;
+}
+.main .information__card__content__form-item {
+  height: 35px;
+  margin-bottom: 5px;
+  padding: 8px;
+  position: relative;
+  text-transform: capitalize;
+  background-color: #ccc;
+  border: none;
+}
+.main .information__card__content__form-item::placeholder {
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  color: #313131;
+}
+.main .information__card__content__form-message {
+  height: 115px;
+  text-transform: capitalize;
+  position: relative;
+  text-transform: capitalize;
+  background-color: #ccc;
+  border: none;
+}
+.main .information__card__content__form-message::placeholder {
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  color: #313131;
+}
+.main .information__card__content__form__btns {
+  margin-top: 5px;
+}
+.main .information__card__content__form__btns-item {
+  height: 35px;
+  padding: 8px;
+  text-transform: uppercase;
+  color: #ffffff;
+  font-weight: 800;
+  background-color: #313131;
+  border: none;
+}
+.main .information__card__content__form__btns-item:hover {
+  background-color: #d00b01;
+}
+.main .information__card__content__images {
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+}
+.main .information__card__content__images-item {
+  height: 84px;
+  width: 84px;
+  background-color: #313131;
 }
 @media screen and (max-width: 900px) {
   .main {
@@ -232,13 +343,11 @@ body {
     font-size: 16px;
   }
 }
-
-.icon {
-  height: 71px;
-  width: 72px;
-}
-.icon:hover {
-  cursor: pointer;
+@media screen and (max-width: 1200px) {
+  .main .information {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .title {
@@ -258,4 +367,22 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.gray-line {
+  height: 1px;
+  background-color: #ccc;
+}
+
+.reset-btn {
+  width: 90px;
+}
+
+.send-button {
+  width: 50px;
+}
+
+.author {
+  color: #d00b01;
+  margin-top: 15px;
 }/*# sourceMappingURL=style.css.map */

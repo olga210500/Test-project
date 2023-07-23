@@ -1,0 +1,16 @@
+.heart-icon {
+  background-image: url("../assets/images/heart.svg");
+}
+
+.star-icon {
+  background-image: url("../assets/images/star.svg");
+}
+
+.earth-icon {
+  background-image: url("../assets/images/earth.svg");
+}
+
+.send-icon {
+  background-image: url("../assets/images/send.svg");
+  transform: scaleX(-1);
+}/*# sourceMappingURL=icons.css.map */

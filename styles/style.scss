@@ -5,10 +5,26 @@ $string-height: 5px;
 $bold-font: 800;
 $black-color-2: #3a3a3a;
 $gray-color-2: #ccc;
+$filter-invert: invert(100%);
+$white-color: #ffffff;
 
 @mixin text-parameters {
   font-weight: 300;
   margin-top: 10px;
+}
+
+@mixin placeholder-style {
+  position: relative;
+  text-transform: capitalize;
+  background-color: $gray-color-2;
+  border: none;
+
+  &::placeholder {
+    position: absolute;
+    top: 10px;
+    left: 12px;
+    color: $black-color;
+  }
 }
 
 * {
@@ -23,6 +39,13 @@ body {
 
 .string {
   height: $string-height;
+}
+
+.black {
+  background-color: $black-color;
+}
+
+.red {
   background-color: $red-color;
 }
 
@@ -76,10 +99,15 @@ body {
           font-weight: $bold-font;
           color: $black-color;
           padding: 10px;
+
+          &:hover {
+            color: $gray-color-2;
+          }
         }
 
         .active {
           color: $red-color;
+          pointer-events: none;
         }
       }
 
@@ -138,6 +166,30 @@ body {
       align-items: center;
       margin-top: 93px;
 
+      &__icon {
+        margin-bottom: 10px;
+
+        .icon {
+          height: 71px;
+          width: 72px;
+          display: block;
+          background-repeat: no-repeat;
+          background-size: 40px;
+          background-position: center;
+          background-color: $gray-color-2;
+          border-radius: 100px;
+        }
+
+        .custom-icon {
+          cursor: pointer;
+
+          &:hover {
+            filter: $filter-invert;
+            background-color: #2ff4fe;
+          }
+        }
+      }
+
       &__content {
         font-size: 12px;
         line-height: 18px;
@@ -164,15 +216,11 @@ body {
       font-weight: 300;
     }
 
-    .gray-line {
-      height: 1px;
-      background-color: $gray-color-2;
-    }
-
     .content {
       display: flex;
       flex-direction: column;
       align-items: center;
+      margin: 35px 0;
     }
   }
 
@@ -188,8 +236,11 @@ body {
 
     .cards {
       margin-top: 20px;
+      margin-bottom: 80px;
       display: flex;
       justify-content: space-between;
+      gap: 50px;
+      flex-wrap: wrap;
 
       .cards-item {
         &__picture {
@@ -232,6 +283,81 @@ body {
     .buttons {
       display: flex;
       margin-left: 2px;
+    }
+  }
+
+  .information {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 50px;
+
+    &__card {
+      &__content {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        margin: 20px 0;
+        &__messages {
+          &-img {
+            float: left;
+            width: 20px;
+            height: 20px;
+            margin: 7px 7px 7px 0;
+          }
+
+          a {
+            text-decoration: none;
+            color: $red-color;
+          }
+        }
+
+        &__form {
+          display: flex;
+          flex-direction: column;
+
+          &-item {
+            height: 35px;
+            margin-bottom: 5px;
+            padding: 8px;
+            @include placeholder-style();
+          }
+
+          &-message {
+            height: 115px;
+            text-transform: capitalize;
+            @include placeholder-style();
+          }
+
+          &__btns {
+            margin-top: 5px;
+
+            &-item {
+              height: 35px;
+              padding: 8px;
+              text-transform: uppercase;
+              color: $white-color;
+              font-weight: $bold-font;
+              background-color: $black-color;
+              border: none;
+
+              &:hover {
+                background-color: $red-color;
+              }
+            }
+          }
+        }
+        &__images {
+          display: flex;
+          justify-content: space-between;
+          gap: 5px;
+          &-item {
+            height: 84px;
+            width: 84px;
+            background-color: $black-color;
+          }
+        }
+      }
     }
   }
 
@@ -280,14 +406,12 @@ body {
       font-size: 16px;
     }
   }
-}
 
-.icon {
-  height: 71px;
-  width: 72px;
-
-  &:hover {
-    cursor: pointer;
+  @media screen and (max-width: 1200px) {
+    .information {
+      display: flex;
+      flex-direction: column;
+    }
   }
 }
 
@@ -308,4 +432,22 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.gray-line {
+  height: 1px;
+  background-color: $gray-color-2;
+}
+
+.reset-btn {
+  width: 90px;
+}
+
+.send-button {
+  width: 50px;
+}
+
+.author {
+  color: $red-color;
+  margin-top: 15px;
 }
